@@ -31,46 +31,47 @@ class BasePageObject {
         return element(by.css('.sidenav.mat-drawer'));
     }
 
-    get verticalMenuItem(){
+    get verticalMenuItem() {
         return element(by.css('.vertical-menu-item.heading.ng-star-inserted'));
     }
 
-    get submenuElement(){
+    get submenuElement() {
         return element(by.css('.heading-children.level-1.expanded'));
     }
 
-    get vertMenuItem(){
+    get vertMenuItem() {
         return element(by.css('[title="The fundamentals of Angular"]'));
     }
 
-    get subItem(){
+    get subItem() {
         return element(by.css('[title="The basic building blocks of Angular applications."]'));
     }
 
-    get subSubMenuItem(){
+    get subSubMenuItem() {
         return element(by.css('.heading-children.level-2.expanded'));
     }
 
-    get title(){
+    get title() {
         return element(by.css('#what-is-angular'));
     }
 
-    get navigationBar(){
+    get navigationBar() {
         return element(by.css('ul [role="navigation"]'));
     }
 
-    get link(){
+    get link() {
         return element(by.css('.link[title="日本語版"]'))
     }
 }
 
-class PageObject extends BasePageObject{
-    get titleValue(){
+class PageObject extends BasePageObject {
+    get titleValue() {
         return super.title.getText();
     }
 
-    get menuItemTitle(){
+    get menuItemTitle() {
         return super.resourcesName.getText();
     }
 }
-module.exports=PageObject;
+
+module.exports = PageObject;
