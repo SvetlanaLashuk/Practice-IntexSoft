@@ -12,9 +12,9 @@ describe('testing the https://angular.io/docs page', function() {
         expect(await po.submenuElement.isDisplayed()).toBe(true);
     });
 
-    it('checks TAB key', async function () {
+    fit('checks TAB key', async function () {
         await po.docsMenuItem.sendKeys(protractor.Key.TAB);
-        expect(await po.resourcesName.getText()).toEqual('RESOURCES');
+        expect(await po.menuItemTitle).toEqual('RESOURCES');
     });
 
     it('matches url', async function () {
@@ -39,8 +39,8 @@ describe('testing the https://angular.io/docs page', function() {
         expect(await po.searchResults.isDisplayed()).toBe(true);
     });
 
-    it('verifies that the header matches the expected header', async function () {
-        expect(await po.title.getText()).toEqual('What is Angular?');
+    fit('verifies that the header matches the expected header', async function () {
+        expect(await po.titleValue).toEqual('What is Angular?');
     });
 
     it('goes to the home page', async function () {
@@ -51,5 +51,15 @@ describe('testing the https://angular.io/docs page', function() {
     it("checks if it switched to the Japanese version", async function () {
         await po.link.click();
         expect(await browser.getCurrentUrl()).toEqual('https://angular.jp/');
+    });
+
+    it("validate package.json",  function () {
+        var Ajv = require('ajv');
+        var schema = require("../schema.json");
+        var data = require("../package.json");
+        var ajv = new Ajv();
+        var validate = ajv.compile(schema);
+        var valid = validate(data);
+        if (!valid) console.log(validate.errors);
     });
 });

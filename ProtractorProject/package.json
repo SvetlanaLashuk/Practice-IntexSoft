@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ajv": "^6.5.1",
     "allure-commandline": "^2.5.0",
     "jasmine-allure-reporter": "^1.0.2",
     "npm-run-all": "^4.1.3",

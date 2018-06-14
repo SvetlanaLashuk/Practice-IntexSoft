@@ -1,33 +1,33 @@
-class PageObject {
-    get featuresLink(){
+class BasePageObject {
+    get featuresLink() {
         return element(by.css('[href="features"]'));
     }
 
-    get resourcesName(){
+    get resourcesName() {
         return element(by.css('[title="Resources"]'));
     }
 
-    get searchField(){
+    get searchField() {
         return element(by.css('[type="search"]'));
     }
 
-    get homeLink(){
+    get homeLink() {
         return element(by.css('.nav-link.home'));
     }
 
-    get searchResults(){
+    get searchResults() {
         return element(by.css('.search-area.ng-star-inserted'));
     }
 
-    get docsMenuItem(){
+    get docsMenuItem() {
         return element(by.css('[title="Docs"]'));
     }
 
-    get buttonVertMenu(){
+    get buttonVertMenu() {
         return element(by.css('.hamburger.mat-button'));
     }
 
-    get sideNav(){
+    get sideNav() {
         return element(by.css('.sidenav.mat-drawer'));
     }
 
@@ -61,6 +61,16 @@ class PageObject {
 
     get link(){
         return element(by.css('.link[title="日本語版"]'))
+    }
+}
+
+class PageObject extends BasePageObject{
+    get titleValue(){
+        return super.title.getText();
+    }
+
+    get menuItemTitle(){
+        return super.resourcesName.getText();
     }
 }
 module.exports=PageObject;
