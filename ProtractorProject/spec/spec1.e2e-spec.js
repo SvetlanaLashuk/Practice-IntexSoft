@@ -1,7 +1,7 @@
 let PageObject = require("../page-object");
 let validation = require("../validator");
-let schema = require("../schema.json");
-let data = require("../package.json");
+var packageJson = require("../package.json");
+var packageLockJson = require("../package-lock.json");
 let po = new PageObject();
 let EC = protractor.ExpectedConditions;
 
@@ -57,6 +57,10 @@ describe('testing the https://angular.io/docs page', function () {
     });
 
     it("validate package.json", function () {
-        validation(schema, data);
+        validation.validateJSON("schema-package", packageJson);
+    });
+
+    it("validate package-lock.json", function () {
+        validation.validateJSON("schema-package-lock", packageLockJson);
     });
 });

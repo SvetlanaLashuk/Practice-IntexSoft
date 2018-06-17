@@ -1,0 +1,182 @@
+{
+  "$id": "schema",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "name": {
+      "$id": "/properties/name",
+      "type": "string",
+      "title": "The Name Schema ",
+      "default": "",
+      "examples": [
+        "protractorproject"
+      ]
+    },
+    "version": {
+      "$id": "/properties/version",
+      "type": "string",
+      "title": "The Version Schema ",
+      "default": "",
+      "examples": [
+        "1.0.0"
+      ]
+    },
+    "description": {
+      "$id": "/properties/description",
+      "type": "string",
+      "title": "The Description Schema ",
+      "default": "",
+      "examples": [
+        ""
+      ]
+    },
+    "main": {
+      "$id": "/properties/main",
+      "type": "string",
+      "title": "The Main Schema ",
+      "default": "",
+      "examples": [
+        "index.js"
+      ]
+    },
+    "scripts": {
+      "$id": "/properties/scripts",
+      "type": "object",
+      "properties": {
+        "pretest": {
+          "$id": "/properties/scripts/properties/pretest",
+          "type": "string",
+          "title": "The Pretest Schema ",
+          "default": "",
+          "examples": [
+            "if exist allure-results ( rmdir /s/q allure-results ) && if exist allure-report ( rmdir /s/q allure-report )"
+          ]
+        },
+        "e2e": {
+          "$id": "/properties/scripts/properties/e2e",
+          "type": "string",
+          "title": "The E2e Schema ",
+          "default": "",
+          "examples": [
+            "node test-conf.js"
+          ]
+        },
+        "allure": {
+          "$id": "/properties/scripts/properties/allure",
+          "type": "string",
+          "title": "The Allure Schema ",
+          "default": "",
+          "examples": [
+            "allure generate allure-results --clean -o allure-report || true"
+          ]
+        },
+        "test": {
+          "$id": "/properties/scripts/properties/test",
+          "type": "string",
+          "title": "The Test Schema ",
+          "default": "",
+          "examples": [
+            "node node_modules/npm-run-all/bin/npm-run-all/index.js -c e2e allure"
+          ]
+        }
+      }
+    },
+    "author": {
+      "$id": "/properties/author",
+      "type": "string",
+      "title": "The Author Schema ",
+      "default": "",
+      "examples": [
+        ""
+      ]
+    },
+    "license": {
+      "$id": "/properties/license",
+      "type": "string",
+      "title": "The License Schema ",
+      "default": "",
+      "examples": [
+        "ISC"
+      ]
+    },
+    "dependencies": {
+      "$id": "/properties/dependencies",
+      "type": "object",
+      "properties": {
+        "ajv": {
+          "$id": "/properties/dependencies/properties/ajv",
+          "type": "string",
+          "title": "The Ajv Schema ",
+          "default": "",
+          "examples": [
+            "^6.5.1"
+          ]
+        },
+        "ajv-i18n": {
+          "$id": "/properties/dependencies/properties/ajv-i18n",
+          "type": "string",
+          "title": "The Ajv-i18n Schema ",
+          "default": "",
+          "examples": [
+            "^3.3.0"
+          ]
+        },
+        "allure-commandline": {
+          "$id": "/properties/dependencies/properties/allure-commandline",
+          "type": "string",
+          "title": "The Allure-commandline Schema ",
+          "default": "",
+          "examples": [
+            "^2.5.0"
+          ]
+        },
+        "jasmine-allure-reporter": {
+          "$id": "/properties/dependencies/properties/jasmine-allure-reporter",
+          "type": "string",
+          "title": "The Jasmine-allure-reporter Schema ",
+          "default": "",
+          "examples": [
+            "^1.0.2"
+          ]
+        },
+        "npm-run-all": {
+          "$id": "/properties/dependencies/properties/npm-run-all",
+          "type": "string",
+          "title": "The Npm-run-all Schema ",
+          "default": "",
+          "examples": [
+            "^4.1.3"
+          ]
+        },
+        "path": {
+          "$id": "/properties/dependencies/properties/path",
+          "type": "string",
+          "title": "The Path Schema ",
+          "default": "",
+          "examples": [
+            "^0.12.7"
+          ]
+        },
+        "protractor": {
+          "$id": "/properties/dependencies/properties/protractor",
+          "type": "string",
+          "title": "The Protractor Schema ",
+          "default": "",
+          "examples": [
+            "^5.3.1"
+          ]
+        },
+        "recursive-readdir-sync": {
+          "$id": "/properties/dependencies/properties/recursive-readdir-sync",
+          "type": "string",
+          "title": "The Recursive-readdir-sync Schema ",
+          "default": "",
+          "examples": [
+            "^1.0.6"
+          ]
+        }
+      }
+    }
+  }
+}
