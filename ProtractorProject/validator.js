@@ -4,7 +4,6 @@ var localize = require('ajv-i18n');
 var path = require("path");
 
 function validateJSON(key, data) {
-    addSchema();
     var schema = ajv.getSchema(key).schema;
     var validate = ajv.compile(schema);
     var valid = ajv.validate(schema, data);
@@ -18,7 +17,7 @@ function validateJSON(key, data) {
 function getSchemas() {
     var recursiveReadSync = require('recursive-readdir-sync'), files;
     try {
-        files = recursiveReadSync(__dirname);
+        files = recursiveReadSync(__dirname+"/schemas");
     } catch (err) {
         if (err.errno === 34) {
             console.log('Path does not exist');
@@ -28,16 +27,13 @@ function getSchemas() {
     }
     var schemas = [];
     for (var i = 0; i < files.length; i++) {
-        if (path.extname(files[i]).match(/^.json/) && (path.dirname(files[i]).search(/node_modules/) === -1) && (path.dirname(files[i]).search(/schemas/) !== -1)) {
             schemas.push(files[i]);
-        }
     }
     return schemas;
 }
 
 function getKey(str) {
-    var res = str.match(/\S\W\\([A-Za-zА-Яа-я]*(\\))*/g);
-    return str.replace(res, '').replace('.json', '');
+    return str.substring(str.lastIndexOf('\\') + 1).replace('.json', '');
 }
 
 function addSchema() {
@@ -48,5 +44,6 @@ function addSchema() {
 }
 
 module.exports = {
-    validateJSON: validateJSON
+    validateJSON: validateJSON,
+    addSchema: addSchema
 };

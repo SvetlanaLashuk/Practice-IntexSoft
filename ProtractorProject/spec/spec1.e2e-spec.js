@@ -2,6 +2,7 @@ let PageObject = require("../page-object");
 let validation = require("../validator");
 var packageJson = require("../package.json");
 var packageLockJson = require("../package-lock.json");
+validation.addSchema();
 let po = new PageObject();
 let EC = protractor.ExpectedConditions;
 
@@ -55,12 +56,14 @@ describe('testing the https://angular.io/docs page', function () {
         await po.link.click();
         expect(await browser.getCurrentUrl()).toEqual('https://angular.jp/');
     });
+});
 
+describe("JSON validation tests", function () {
     it("validate package.json", function () {
-        validation.validateJSON("schema-package", packageJson);
+        validation.validateJSON("package", packageJson);
     });
 
     it("validate package-lock.json", function () {
-        validation.validateJSON("schema-package-lock", packageLockJson);
+        validation.validateJSON("package-lock", packageLockJson);
     });
 });
